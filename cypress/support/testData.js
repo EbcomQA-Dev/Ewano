@@ -77,11 +77,11 @@ export class TestData {
   export const TEST_PHONE_NUMBER5 = '9961055762';
   export const TEST_PHONE_NUMBER6 = '9133539588';
   export const TEST_PHONE_NUMBER7 = '9125056114';
-  export const TEST_OTP_NUMBER1 = '123456';
+  export const TEST_OTP_NUMBER1 = '12';
   export const TEST_OTP_NUMBER2 = '4030';
   export const TEST_YEAR1 = '1408';
   export const TEST_MONTH1 = '06';
-  export const TEST_SERVICE_CODE = '123456';
+  export const TEST_SERVICE_CODE = '1234';
   export const TEST_CARDNUMBER = '6362141120337689';
   export const TEST_MCI_PHONE_NUMBER_BILL = '09120196324';
   export const TEST_MTN_PHONE_NUMBER_BILL = '09002131368';

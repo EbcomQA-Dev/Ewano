@@ -25,8 +25,8 @@ describe('Login Test', () => {
   });
   
 
-  it('should show error when incorrect OTP is entered after valid phone number', () => {
-    loginPage.invalidOtpLogin(TEST_PHONE_NUMBER , '5435')
+  it.only('should show error when incorrect OTP is entered after valid phone number', () => {
+    loginPage.invalidOtpLogin(TEST_PHONE_NUMBER , '543555')
     const expectedMessages = '1203 - خطای نامشخص';
     loginPage.assertToastsVisible([expectedMessages]);
   });

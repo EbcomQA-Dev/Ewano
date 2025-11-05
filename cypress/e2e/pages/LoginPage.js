@@ -4,9 +4,9 @@ import { wait } from '../../support/testData';
 
 export class LoginPage {
     gotIt = () => cy.contains('متوجه شدم', { timeout: 20000 });
-    insertPhoneNumber = () => cy.get('input[type="tel"][inputmode="numeric"]').first();
+    insertPhoneNumber = () => cy.get('input[type="tel"]').first();
     confirmation = () => cy.contains('تایید');
-    insertOtp = () => cy.get('input[type="tel"][maxlength="8"]');
+    insertOtp = () => cy.get('input[type="tel"]').first();
     homePage = () => cy.contains('خرید شارژ');
     loginButton = () => cy.contains('ورود به اوانو');
     invalidNumber = () => cy.contains('عجب! شماره همراهی که وارد کردید درست نیست!');
