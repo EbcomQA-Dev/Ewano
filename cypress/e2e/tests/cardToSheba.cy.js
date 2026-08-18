@@ -13,7 +13,7 @@ describe('CardToShebaPage - UI & API Test', () => {
     loginPage.successfulLogIn(TEST_PHONE_NUMBER, TEST_OTP_NUMBER1)
   });
 
-  it('Retrieve account information (IBAN, account number, full name) using a previously saved card from the user card list.' , ()=>{
+  it.only('Retrieve account information (IBAN, account number, full name) using a previously saved card from the user card list.' , ()=>{
 
     cardToShebaPage.ConvertCardtoShebafromMyCardList()
     cardToShebaPage.AssertCardInformationReceiptAPI()

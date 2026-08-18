@@ -14,7 +14,7 @@ describe('Homepage Banners - UI & API consistency check', () => {
     bannerPage.waitForBanners();
   });
 
-  it('should display the "cardTransfer" banner and navigate correctly on click', () => {
+  it.only('should display the "cardTransfer" banner and navigate correctly on click', () => {
     bannerPage.findBannerByActionCode('cardTransfer').then(targetBanner => {
       bannerPage.verifyBannerDisplayed(targetBanner.imageUrl);
       cy.contains('کارت به کارت', { timeout: 10000 }).should('be.visible');

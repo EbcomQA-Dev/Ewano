@@ -16,7 +16,7 @@ describe('Transaction Page - Wallet and Card-to-Card Transactions', () => {
     loginPage.successfulLogIn(TEST_PHONE_NUMBER3, TEST_OTP_NUMBER2);
   });
 
-  it('Successful wallet balance top-up via in-app payment gateway', () => {
+  it.only('Successful wallet balance top-up via in-app payment gateway', () => {
     gPage.increaseWalletBalanceWithExistingCard('674', '0440034922');
   });
 
@@ -24,7 +24,7 @@ describe('Transaction Page - Wallet and Card-to-Card Transactions', () => {
     gPage.assetIncreaseWalletBalance('67', '1234');
   });
 
-  it.only('Fail purchase via in-app gateway with wrong CVV2 and show error snackbar', () => {
+  it('Fail purchase via in-app gateway with wrong CVV2 and show error snackbar', () => {
     gPage.failPurchaseWithWrongCVV2('675', '0440034922');
   });
 

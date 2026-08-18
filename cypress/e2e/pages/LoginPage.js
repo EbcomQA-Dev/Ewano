@@ -11,8 +11,7 @@ export class LoginPage {
     loginButton = () => cy.contains('ورود به اوانو');
     invalidNumber = () => cy.contains('عجب! شماره همراهی که وارد کردید درست نیست!');
     clickEditPhoneNumberButton = () => cy.contains('button', 'اصلاح شماره تلفن');
-    insetEditPhoneNumberText = () => cy.get('input[type="tel"][id="msisdnInput"]').first();
-    insertEditPhoneNumberOtp = () => cy.get('input[type="tel"][id="msisdnInput"]').first();
+   
     clickResendOTPButton = () => cy.contains('ارسال مجدد');
     verifyResendOTPMessage = () => cy.contains('تا ارسال مجدد');
     
@@ -27,6 +26,9 @@ export class LoginPage {
     }
 
     AssertHomePage() {
+        wait();
+        wait();
+        wait();
         this.homePage().should('be.visible');
         this.print('لاگین موفق انجام شد');
     }
@@ -40,6 +42,8 @@ export class LoginPage {
         this.confirmation().click();
         wait();
         this.insertOtp().type(otp);
+        wait();
+        wait();
         
     }
 

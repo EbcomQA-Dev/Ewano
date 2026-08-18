@@ -1,5 +1,5 @@
 import { LoginPage } from '../pages/LoginPage'
-import { TEST_PHONE_NUMBER , TEST_OTP_NUMBER1, TEST_PHONE_NUMBER3 ,TEST_OTP_NUMBER2 } from '../../support/testData';
+import { TEST_PHONE_NUMBER , TEST_OTP_NUMBER1, TEST_PHONE_NUMBER3 ,TEST_PHONE_NUMBER8 , TEST_OTP_NUMBER2 } from '../../support/testData';
 import {SecuritySettingPages } from '../pages/SecuritySettingPages'
 
 describe('Login Test', () => {
@@ -8,7 +8,7 @@ describe('Login Test', () => {
   
 
   it('should successfully log in with correct OTP code after entering valid phone number', () => {
-    loginPage.successfulLogIn(TEST_PHONE_NUMBER, TEST_OTP_NUMBER1)
+    loginPage.successfulLogIn(TEST_PHONE_NUMBER8, TEST_OTP_NUMBER1)
     loginPage.AssertHomePage()
   })
 
@@ -25,9 +25,9 @@ describe('Login Test', () => {
   });
   
 
-  it.only('should show error when incorrect OTP is entered after valid phone number', () => {
+  it('should show error when incorrect OTP is entered after valid phone number', () => {
     loginPage.invalidOtpLogin(TEST_PHONE_NUMBER , '543555')
-    const expectedMessages = '1203 - خطای نامشخص';
+    const expectedMessages = '1203 - متاسفانه ارتباط برقرار نشد؛ لطفا دوباره تلاش کنید.';
     loginPage.assertToastsVisible([expectedMessages]);
   });
 

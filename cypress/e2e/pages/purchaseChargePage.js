@@ -9,7 +9,7 @@ export class PurchaseChargePage {
   continueAndPay       = () => cy.contains('ادامه و پرداخت');
   confirmAndContinue   = () => cy.contains('تایید و ادامه');
   customAmountButton   = () => cy.contains('مبلغ دلخواه');
-  paymentButton        = () => cy.contains('پرداخت');
+  paymentButton        = () => cy.get('button').contains('پرداخت');
   receiptCard          = (opts = {}) => cy.get('.MuiCard-root', opts);
   toast                = () => cy.get('.Toastify__toast--error');
   allToast             = () => cy.get('.toast-container');
@@ -52,12 +52,26 @@ export class PurchaseChargePage {
     this.phoneNumberSelect().click();
     this.typePhoneNumber(phoneNumber);
     cy.wrap(phoneNumber).as('testPhoneNumber');
-    this.confirmButton().click();
-    this.selectMCI().click();
-    this.wait();
-    this.continueButton().click();
-    this.continueAndPay().click();
-    this.confirmAndContinue().click();
+    cy.get('[data-testid="confirmModal"]').click()
+    cy.get('[data-testid="mci"]').click()
+    cy.get('[data-testid="continueButton"]').click()
+    cy.contains('div', 'مبلغ باقی مانده')
+  .parent()
+  .contains('button', 'پرداخت')
+  .should('be.visible')
+  .click()
+
+  cy.get('body').then(($body) => {
+    if ($body.text().includes('تایید اطلاعات تراکنش')) {
+      cy.log('موجودی کیف پول نقدی کم است')
+      
+    }
+  })
+
+  cy.contains('button', 'تایید و ادامه')
+  .should('be.visible')
+  .click()
+
   }
 
   completePurchaseMTN(phoneNumber) {
@@ -69,10 +83,18 @@ export class PurchaseChargePage {
     cy.wrap(phoneNumber).as('testPhoneNumber');
     this.confirmButton().click();
     this.selectMTN().click();
-    this.getTopupAmount().click();
-    this.continueButton().click();
-    this.continueAndPay().click();
-    this.confirmAndContinue().click();
+    cy.contains('button', 'پرداخت')
+    .should('be.visible')
+    .click()
+    cy.wait(2000)
+    cy.contains('div', 'مبلغ باقی مانده')
+    .parent()
+    .contains('button', 'ادامه و پرداخت')
+    .should('be.visible')
+    .click()
+   
+
+  
   }
 
   completePurchaseTaliya(phoneNumber) {
@@ -118,9 +140,12 @@ export class PurchaseChargePage {
     this.wait();
     this.customAmountButton().click();
     this.continueButton().click();
-    this.customAmountInput().clear({ force: true }).type('50000', { force: true });
+    this.customAmountInput().clear({ force: true }).type('250000', { force: true });
     this.paymentButton().click();
-    this.continueAndPay().click();
+    cy.contains('button', 'ادامه و پرداخت')
+    .should('be.visible')
+    .click()
+
     this.confirmAndContinue().click();
   }
 

@@ -77,8 +77,10 @@ export class TestData {
   export const TEST_PHONE_NUMBER5 = '9961055762';
   export const TEST_PHONE_NUMBER6 = '9133539588';
   export const TEST_PHONE_NUMBER7 = '9125056114';
-  export const TEST_OTP_NUMBER1 = '12';
-  export const TEST_OTP_NUMBER2 = '4030';
+  export const TEST_PHONE_NUMBER8 = '09195944597';
+  export const TEST_PHONE_NUMBER9 = '09964104939';
+  export const TEST_OTP_NUMBER1 = '123456';
+  export const TEST_OTP_NUMBER2 = '123456';
   export const TEST_YEAR1 = '1408';
   export const TEST_MONTH1 = '06';
   export const TEST_SERVICE_CODE = '1234';
